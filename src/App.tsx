@@ -1,9 +1,14 @@
-import React from 'react';
-
 import { Footer } from './components/footer';
+import { Header } from './components/header';
+import './index.css';
 
 function App() {
-    return <Footer></Footer>;
+    return (
+        <>
+            <Header />
+            <Footer />
+        </>
+    );
 }
 
 export default App;
