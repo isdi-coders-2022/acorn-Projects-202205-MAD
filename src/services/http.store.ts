@@ -2,12 +2,13 @@ import { iMatch } from '../models/interface';
 
 export class HttpStore {
     constructor(public url: string) {}
-    //crud
-    // create -read- upgrade- delete
+
     getData(id: string) {
         return fetch(this.url + id).then((response) => response.json());
     }
-
+    getAllData() {
+        return fetch(this.url).then((response) => response.json());
+    }
     setData(match: iMatch) {
         return fetch(this.url, {
             method: 'POST',
