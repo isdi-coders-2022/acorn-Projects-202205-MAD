@@ -1,46 +1,108 @@
-# Getting Started with Create React App
+# Análisis inicial del proyecto por grupos - Acorn - Adrián, Fran, Rodrigo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Temática
 
-## Available Scripts
+Aplicación web que recomienda películas en base al clima.
+Permite guardar matches entre película y clima, mostrarlos, crear nuevos, editarlos o borrarlos.
 
-In the project directory, you can run:
+APIs: IMDB, WeatherAPI
 
-### `npm start`
+=======
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Elementos de la aplicación
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Páginas
 
-### `npm test`
+- Home
+- Login
+- Personal playlist
+- New match
+- Details
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Componentes y responsabilidades
 
-### `npm run build`
+- Comunes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - Header: Mostrar logo y cabecera. Pintar componente Navigation
+  - Footer: Mostrar información de autores y contacto
+  - Navigation: Mostrar opciones de navegación, funcionalidad de cambio de página
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Home: Incluye Header, Footer y Navigation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - Info: Mostrar info estática sobre el funcionamiento de la web
+  - Results: Mostrar resultado del algoritmo de recomendaciones (ESTADO)
+  - Configuration: Recoger entrada de usuario para cambiar el algoritmo (ESTADO)
 
-### `npm run eject`
+- Login
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  - Login: Recoger entrada de usuario y cambiar estado guest/logged (ESTADO)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Personal playlist: Incluye Header, Footer y Navigation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  - Filter: Recoger entrada usuario sobre lo que se mostrará en lista (ESTADO)
+  - List: Mostrar API local de favoritos en función de lo que especifique filter (ESTADO)
+  - Film: Mostrar información de película y clima asociado. Recoge entrada de usuario para borrar
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- New match: Incluye Header, Footer y Navigation
 
-## Learn More
+  - Form: Recoger el dato de clima del usuario para crear un nuevo match
+  - List: Mostrar API pública, permitiendo filtrado por búsqueda.
+  - ListItem: Mostrar información de la película. Recoger entrada de usuario para crear nuevo match
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Details: Incluye Header, Footer y Navigation
+  - FilmDetails: Mostrar datos de la película en base a la información de la API pública y la local
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Milestones
+
+### Orden de creación de páginas
+
+- Home
+- New match
+- Personal playlist
+- Details
+- Login
+
+### Prioridad de detalles de implementación
+
+**Básico**: Imprescindible, realizar en primeras etapas. Estado por defecto
+**Avanzado**: Añadidos de mejora de funcionalidades, añadir una vez completado básico y su testing al 100%
+**Avanzado+**: Mejoras complejas, añadir sólo si el proyecto está ya en una etapa funcional completa
+
+- Header
+  - Logo-botón
+  - Espacio para navigation
+- Navigation
+  - Botón principal adaptable
+  - Añadir botón secundario opcional según estado de login: **Avanzado**
+- Footer
+  - Tarjetas personales
+- Info
+  - Imágenes estáticas
+  - Panel de descripción
+  - Imágenes en carrusel: **Avanzado**
+- Results
+  - Imágenes (3) estáticas
+  - Imágenes en carrusel: **Avanzado**
+- Config
+  - Selector de clima
+  - Ubicación: **Avanzado+**
+- Login: **Avanzado**
+- Personal playlist
+  - Filtro con botones-icono para clima
+  - Lista
+  - Film clickable para ir a details, botón borrar
+- New match
+  - Form desplegable con clima
+  - List
+    - Buscador
+    - Lista estática
+    - Lista slider: **Avanzado**
+    - Ordenar por: **Avanzado+**
+  - ListItem con info pelicula
+    - Botón añadir match
+    - Botón cambiar match a clima seleccionado actualmente
+    - Confirmación de cambio de clima: **Avanzado**
+- Details
+  - Poster
+  - Datos
+  - Trailer
