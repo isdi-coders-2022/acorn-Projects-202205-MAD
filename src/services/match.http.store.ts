@@ -1,14 +1,15 @@
 import { iMatch } from '../models/interface';
 
-export class HttpStore {
+export class MatchHttpStore {
     constructor(public url: string) {}
-    //crud
-    // create -read- upgrade- delete
-    getData(id: string) {
+
+    getMatch(id: string): Promise<iMatch> {
         return fetch(this.url + id).then((response) => response.json());
     }
-
-    setData(match: iMatch) {
+    getAllMatch(): Promise<Array<iMatch>> {
+        return fetch(this.url).then((response) => response.json());
+    }
+    setMatch(match: iMatch): Promise<iMatch> {
         return fetch(this.url, {
             method: 'POST',
             body: JSON.stringify(match),
@@ -17,7 +18,7 @@ export class HttpStore {
             },
         }).then((response) => response.json());
     }
-    updateData(match: Partial<iMatch>) {
+    updateMatch(match: Partial<iMatch>): Promise<iMatch> {
         return fetch(this.url + match.id, {
             method: 'PATCH',
             body: JSON.stringify(match),
@@ -27,7 +28,7 @@ export class HttpStore {
         }).then((response) => response.json());
     }
 
-    deleteData(match: iMatch) {
+    deleteMatch(match: iMatch): Promise<iMatch> {
         return fetch(this.url + match.id, {
             method: 'DELETE',
         }).then((response) => response.json());
