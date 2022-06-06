@@ -26,4 +26,18 @@ export interface iFilm {
     imDbRating: string;
 }
 
-export interface iFilmResult {}
+export interface iFilmResult {
+    expression: string;
+    results: Array<{
+        id: string;
+        image: string;
+        title: string;
+        description: string;
+    }>;
+}
+
+export interface iMatch {
+    id: string;
+    idFilm: string;
+    weather: string;
+}
