@@ -12,32 +12,30 @@ export interface iWeather {
     };
 }
 
-export interface iFilm {
-    id: string;
-    title: string;
-    year: string;
-    image: string;
-    runtimeStr: string;
-    plotLocal: string;
-    directors: string;
-    stars: string;
-    genres: string;
-    countries: string;
-    imDbRating: string;
-}
-
-export interface iFilmResult {
-    expression: string;
-    results: Array<{
-        id: string;
-        image: string;
-        title: string;
-        description: string;
-    }>;
-}
-
 export interface iMatch {
     id: string;
-    idFilm: string;
+    idFilm: number;
     weather: string;
+}
+
+export interface iFilm {
+    id: number;
+    overview: string;
+    poster_path: string;
+    release_date: string;
+    title: string;
+    video: false;
+    vote_average: number;
+}
+
+export interface iFilmSearch {
+    results: Array<iFilm>;
+}
+
+export interface iVideo {
+    id: number;
+    results: Array<{
+        key: string;
+        type: string;
+    }>;
 }
