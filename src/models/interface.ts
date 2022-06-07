@@ -24,7 +24,6 @@ export interface iFilm {
     poster_path: string;
     release_date: string;
     title: string;
-    video: false;
     vote_average: number;
 }
 
