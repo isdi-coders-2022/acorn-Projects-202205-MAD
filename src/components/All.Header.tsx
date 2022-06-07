@@ -4,8 +4,8 @@ import { Navigation } from './All.Navigation';
 export function Header() {
     return (
         <header>
-            <Link to="">
-                <img id="logo" src="./img/logo.png" alt="logo" />
+            <Link to="/home">
+                <img id="logo" src="/img/logo.png" alt="logo" />
             </Link>
             <Navigation />
         </header>
