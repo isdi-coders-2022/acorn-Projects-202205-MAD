@@ -1,7 +1,11 @@
+import { Form } from '../components/NewMatch.Form';
+import { List } from '../components/NewMatch.List';
+
 export function NewMatch() {
     const template = (
         <>
-            <p>Esto es newMatch</p>
+            <Form />
+            <List />
         </>
     );
     return template;
