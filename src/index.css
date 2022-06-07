@@ -51,8 +51,19 @@ footer ul {
     justify-content: space-between;
 }
 
+.search__list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search__list span {
+    width: 60vh;
+}
+
 .search__img {
     width: 15vh;
     height: 17vh;
     border-radius: 1rem;
+    margin-right: 1rem;
 }
