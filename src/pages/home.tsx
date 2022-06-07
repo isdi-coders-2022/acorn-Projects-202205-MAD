@@ -1,4 +1,8 @@
 export function Home() {
-    const template = <></>;
+    const template = (
+        <>
+            <p>Esto es el home</p>
+        </>
+    );
     return template;
 }
