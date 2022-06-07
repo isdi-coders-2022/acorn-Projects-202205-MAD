@@ -17,7 +17,6 @@ export function List() {
     };
     const [search, setSearch] = useState('');
     const [printSearch, setPrintSearch] = useState(initialPrintSearch);
-
     useEffect(() => {
         if (search.length >= 3) {
             searchPrint(search).then((resp) => setPrintSearch(resp));
@@ -27,6 +26,26 @@ export function List() {
     function handlerChange(ev: SyntheticEvent) {
         const eventTarget = ev.target as HTMLFormElement;
         setSearch(eventTarget.value);
+    }
+    function orderBy(ev: SyntheticEvent) {
+        let order: iFilmSearch = {
+            results: [
+                {
+                    id: 0,
+                    overview: '',
+                    poster_path: '',
+                    release_date: '',
+                    title: '',
+                    vote_average: 0,
+                },
+            ],
+        };
+        order = {
+            results: printSearch.results.sort((a, b) =>
+                a.title.localeCompare(b.title)
+            ),
+        };
+        setPrintSearch(order);
     }
 
     async function searchPrint(search: string) {
@@ -42,6 +61,18 @@ export function List() {
                     value={search}
                     onChange={(ev) => handlerChange(ev)}
                 />
+
+                <select
+                    className="config__selector"
+                    name="sort-config"
+                    id="sort-config-match"
+                    onChange={(ev) => orderBy(ev)}
+                >
+                    <option value="">ordenar por</option>
+                    <option value="alphabetic">alfabeticamente</option>
+                    <option value="age-">año (menos a mas)</option>
+                    <option value="age+">año (mas a menos)</option>
+                </select>
             </div>
 
             <div>
