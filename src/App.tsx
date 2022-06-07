@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import './index.css';
 import { Home } from './pages/home';
@@ -10,6 +10,7 @@ function App() {
     const NewMatchPage = React.lazy(() => import('./pages/newMatch'));
     const DetailsPage = React.lazy(() => import('./pages/details'));
     const options = [
+        { path: '', label: 'Home', page: <Home></Home> },
         { path: '/home', label: 'Home', page: <Home></Home> },
         {
             path: '/playlist',
@@ -27,6 +28,7 @@ function App() {
             label: 'Details',
             page: <DetailsPage></DetailsPage>,
         },
+        { path: '*', label: '', page: <Navigate replace to="" /> },
     ];
     return (
         <Layout>

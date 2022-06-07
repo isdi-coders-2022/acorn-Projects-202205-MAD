@@ -9,17 +9,17 @@ export function Footer() {
                 <ul>
                     <li>
                         <a href="https://github.com/RodrigoCalvo">
-                            <img src="./img/github.png" alt="github" />
+                            <img src="/img/github.png" alt="github" />
                         </a>
                     </li>
                     <li>
                         <Link to="/courses?sort=name">
-                            <img src="./img/linkedin.png" alt="linkedin" />
+                            <img src="/img/linkedin.png" alt="linkedin" />
                         </Link>
                     </li>
                     <li>
                         <Link to="/courses?sort=name">
-                            <img src="./img/instagram.png" alt="instagram" />
+                            <img src="/img/instagram.png" alt="instagram" />
                         </Link>
                     </li>
                 </ul>
@@ -29,17 +29,17 @@ export function Footer() {
                 <ul>
                     <li>
                         <a href="https://github.com/Wolfremiio">
-                            <img src="./img/github.png" alt="github" />
+                            <img src="/img/github.png" alt="github" />
                         </a>
                     </li>
                     <li>
                         <Link to="/courses?sort=name">
-                            <img src="./img/linkedin.png" alt="linkedin" />
+                            <img src="/img/linkedin.png" alt="linkedin" />
                         </Link>
                     </li>
                     <li>
                         <Link to="/courses?sort=name">
-                            <img src="./img/instagram.png" alt="instagram" />
+                            <img src="/img/instagram.png" alt="instagram" />
                         </Link>
                     </li>
                 </ul>
@@ -49,17 +49,17 @@ export function Footer() {
                 <ul>
                     <li>
                         <a href="https://github.com/adrianCaleroBarrero">
-                            <img src="./img/github.png" alt="github" />
+                            <img src="/img/github.png" alt="github" />
                         </a>
                     </li>
                     <li>
                         <Link to="/courses?sort=name">
-                            <img src="./img/linkedin.png" alt="linkedin" />
+                            <img src="/img/linkedin.png" alt="linkedin" />
                         </Link>
                     </li>
                     <li>
                         <Link to="/courses?sort=name">
-                            <img src="./img/instagram.png" alt="instagram" />
+                            <img src="/img/instagram.png" alt="instagram" />
                         </Link>
                     </li>
                 </ul>
