@@ -31,3 +31,11 @@ export interface iFilm {
 export interface iFilmSearch {
     results: Array<iFilm>;
 }
+
+export interface iVideo {
+    id: number;
+    results: Array<{
+        key: string;
+        type: string;
+    }>;
+}
