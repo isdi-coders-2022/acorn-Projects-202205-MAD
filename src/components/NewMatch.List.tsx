@@ -1,5 +1,5 @@
 import { SyntheticEvent, useEffect, useState } from 'react';
-import { iFilm, iFilmSearch } from '../models/interface';
+import { iFilmSearch } from '../models/interface';
 import { FilmHttpStore } from '../services/films.http.store';
 
 export function List() {
