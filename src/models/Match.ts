@@ -2,7 +2,7 @@ import { iMatch } from './interface';
 
 export class Match implements iMatch {
     id: string;
-    constructor(public weather: string, public idFilm: string) {
+    constructor(public weather: string, public idFilm: number) {
         this.id = Match.generateId();
     }
     static generateId(): string {

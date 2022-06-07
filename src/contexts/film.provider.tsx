@@ -1,5 +1,5 @@
 import { ReactElement, useState } from 'react';
-import { iFilm, iFilmResult } from '../models/interface';
+import { iFilm } from '../models/interface';
 import { FilmHttpStore } from '../services/films.http.store';
 import { FilmContext } from './film.context';
 
