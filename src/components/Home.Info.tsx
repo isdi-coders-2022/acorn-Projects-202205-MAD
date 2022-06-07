@@ -12,7 +12,7 @@ export function Info() {
                     <img src="" alt="carousel3" />
                 </li>
             </ul>
-            <p className="info__description"></p>
+            <p className="info__description">Nueva forma de sentir el cine</p>
         </section>
     );
     return template;
