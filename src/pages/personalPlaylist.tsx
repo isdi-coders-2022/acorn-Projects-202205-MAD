@@ -1,5 +1,11 @@
+import { Filter } from '../components/PersonalPlaylist.Filter';
+
 export function PersonalPlaylist() {
-    const template = <p>Esto es la playlist</p>;
+    const template = (
+        <>
+            <Filter />
+        </>
+    );
     return template;
 }
 
