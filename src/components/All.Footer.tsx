@@ -8,9 +8,9 @@ export function Footer() {
                 <h4>Rodrigo Calvo</h4>
                 <ul>
                     <li>
-                        <Link to="/courses?sort=name">
+                        <a href="https://github.com/RodrigoCalvo">
                             <img src="./img/github.png" alt="github" />
-                        </Link>
+                        </a>
                     </li>
                     <li>
                         <Link to="/courses?sort=name">
@@ -28,9 +28,9 @@ export function Footer() {
                 <h4>Fran Lobo</h4>
                 <ul>
                     <li>
-                        <Link to="/courses?sort=name">
+                        <a href="https://github.com/Wolfremiio">
                             <img src="./img/github.png" alt="github" />
-                        </Link>
+                        </a>
                     </li>
                     <li>
                         <Link to="/courses?sort=name">
@@ -48,9 +48,9 @@ export function Footer() {
                 <h4>Adrian Calero</h4>
                 <ul>
                     <li>
-                        <Link to="/courses?sort=name">
+                        <a href="https://github.com/adrianCaleroBarrero">
                             <img src="./img/github.png" alt="github" />
-                        </Link>
+                        </a>
                     </li>
                     <li>
                         <Link to="/courses?sort=name">
