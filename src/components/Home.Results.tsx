@@ -14,10 +14,8 @@ export function Results({
                 {resultsArray.map((result) => (
                     <li key={result.id}>
                         <figure>
-                            <img src={result.image} alt="result poster" />
-                            <figcaption>
-                                {result.title} {result.year}
-                            </figcaption>
+                            <img src="" alt="result poster" />
+                            <figcaption>{result.title}</figcaption>
                         </figure>
                     </li>
                 ))}
