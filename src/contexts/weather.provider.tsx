@@ -22,12 +22,18 @@ export function WeatherContextProvider({
         },
     };
     const [weather, setWeather] = useState(initialState);
+    const [loginData, setLoginData] = useState({ status: false, user: '' });
     const weatherApi = new WeatherHttpStore();
+    function loginProcess(user: string) {
+        setLoginData({ status: true, user: user });
+    }
     function getWeather(location: string) {
         weatherApi.getWeather(location).then((resp) => setWeather(resp));
     }
 
     const context = {
+        loginData,
+        loginProcess,
         weather,
         getWeather,
     };
