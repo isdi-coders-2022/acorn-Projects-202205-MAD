@@ -22,39 +22,20 @@ cookie.getFilm(id).then((pelicula) =>{
 
 
     const template = (<>
-    
-    <section>
+ <section>
 <img src={infoPeli.poster_path} alt=""/>
-
 <article>
     <h2 className="Tittle__film">{infoPeli.title}</h2>
-
-    <ul className="Description">
-
-     <li>Sinopsis:{infoPeli.overview}</li>
-
-     <li>Estreno:{infoPeli.release_date}</li>
-
-     <li>Puntuación:{infoPeli.vote_average}</li>
-
-   </ul>
+     <ul className="Description">
+      <li>Sinopsis:{infoPeli.overview}</li>
+      <li>Estreno:{infoPeli.release_date}</li>
+      <li>Puntuación:{infoPeli.vote_average}</li>
+     </ul>
 <video src=""></video>
-
 </article>
-
-    </section>
-    
-    
-    
+ </section>
     
     </>)
-    
-    
-    
-    
-    
-    
-    
     
     ;
     return template;
