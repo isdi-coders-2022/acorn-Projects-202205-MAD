@@ -1,5 +1,5 @@
-import { Footer } from './components/footer';
-import { Header } from './components/header';
+import { Footer } from './components/All.Footer';
+import { Header } from './components/All.Header';
 import './index.css';
 
 function App() {
@@ -11,5 +11,4 @@ function App() {
     );
 }
 
-  
 export default App;
