@@ -12,6 +12,8 @@ export function Playlist({ list }: { list: Array<iMatch> }) {
         promises.push(filmApi.getFilm(matchItem.idFilm))
     );
     Promise.all(promises).then((array) => setFilmList(array));
+    console.log(list);
+
     const template = (
         <ul>
             {filmList.map((film) => (
