@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { iFilm, iMatch } from '../models/interface';
 import { FilmHttpStore } from '../services/films.http.store';
 import { Film } from './PersonalPlaylist.Film';
@@ -6,18 +6,19 @@ import { Film } from './PersonalPlaylist.Film';
 export function Playlist({ list }: { list: Array<iMatch> }) {
     const initialState: Array<iFilm> = [];
     const [filmList, setFilmList] = useState(initialState);
-    const promises: Array<Promise<iFilm>> = [];
-    const filmApi = new FilmHttpStore();
-    list.forEach((matchItem) =>
-        promises.push(filmApi.getFilm(matchItem.idFilm))
-    );
-    Promise.all(promises).then((array) => setFilmList(array));
-    console.log(list);
+    useEffect(() => {
+        const promises: Array<Promise<iFilm>> = [];
+        const filmApi = new FilmHttpStore();
+        list.forEach((matchItem) =>
+            promises.push(filmApi.getFilm(matchItem.idFilm))
+        );
+        Promise.all(promises).then((array) => setFilmList(array));
+    }, [list]);
 
     const template = (
         <ul>
             {filmList.map((film) => (
-                <li>
+                <li key={film.id}>
                     <Film
                         weatherChosen={
                             list.find((item) => item.idFilm === film.id)

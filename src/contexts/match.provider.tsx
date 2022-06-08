@@ -9,7 +9,7 @@ export function MatchContextProvider({ children }: { children: ReactElement }) {
     const initialState: Array<iMatch> = [];
     const [matches, dispatch] = useReducer(matchReducer, initialState);
     const apiMatches = useMemo(
-        () => new MatchHttpStore('http://localhost:3000/matches'),
+        () => new MatchHttpStore('http://localhost:4500/matches'),
         []
     );
     useEffect(() => {
