@@ -1,8 +1,13 @@
-import { SyntheticEvent, useEffect, useState } from 'react';
-import { iFilmSearch } from '../models/interface';
+import { SyntheticEvent, useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { MatchContext } from '../contexts/match.context';
+import { iFilm, iFilmSearch, iMatch } from '../models/interface';
+import { Match } from '../models/Match';
 import { FilmHttpStore } from '../services/films.http.store';
 
-export function List() {
+export function List({ weather }: { weather: string }) {
+    const { addMatch } = useContext(MatchContext);
+
     const initialPrintSearch: iFilmSearch = {
         results: [
             {
@@ -52,10 +57,16 @@ export function List() {
         return await new FilmHttpStore().getSearchFilms(search);
     }
 
+    async function handlerAdd(film: iFilm) {
+        const newMatch = await new Match(weather, film.id);
+        return addMatch(newMatch);
+    }
+
     const template = (
         <>
             <div>
                 <img src="./img/icons8-búsqueda-30.png" alt="lupa" />
+
                 <input
                     type="text"
                     value={search}
@@ -81,17 +92,23 @@ export function List() {
                         (item) =>
                             item.poster_path !== null && (
                                 <li className="search__list" key={item.title}>
-                                    <img
-                                        className="search__img"
-                                        src={`https://image.tmdb.org/t/p/w1280/${item.poster_path}`}
-                                        alt={item.title}
-                                    />
+                                    <Link to={`/details/${item.id}`}>
+                                        <img
+                                            className="search__img"
+                                            src={`https://image.tmdb.org/t/p/w1280/${item.poster_path}`}
+                                            alt={item.title}
+                                        />{' '}
+                                    </Link>
                                     <span>
                                         {item.title +
                                             '  (' +
                                             item.release_date +
                                             ')'}
                                     </span>
+
+                                    <button onClick={() => handlerAdd(item)}>
+                                        ➕
+                                    </button>
                                 </li>
                             )
                     )}
