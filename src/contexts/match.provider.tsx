@@ -28,7 +28,7 @@ export function MatchContextProvider({ children }: { children: ReactElement }) {
             .deleteMatch(match)
             .then((resp) => dispatch(actions.deleteMatchActionCreator(resp)));
     }
-    function modifyMatch(match: iMatch) {
+    function modifyMatch(match: Partial<iMatch>) {
         apiMatches
             .updateMatch(match)
             .then((resp) => dispatch(actions.updateMatchActionCreator(resp)));
