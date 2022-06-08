@@ -6,7 +6,7 @@ import { Match } from '../models/Match';
 import { FilmHttpStore } from '../services/films.http.store';
 
 export function List({ weather }: { weather: string }) {
-    const { addMatch } = useContext(MatchContext);
+    const { addMatch, matches, modifyMatch } = useContext(MatchContext);
 
     const initialPrintSearch: iFilmSearch = {
         results: [
@@ -57,13 +57,21 @@ export function List({ weather }: { weather: string }) {
         return await new FilmHttpStore().getSearchFilms(search);
     }
 
-    async function handlerAdd(film: iFilm) {
-        const newMatch = await new Match(weather, film.id);
-        return addMatch(newMatch);
+    async function handlerAddAndModify(film: iFilm) {
+        const sameFilm = matches.find((match) => match.idFilm === film.id);
+        if (sameFilm === undefined) {
+            const newMatch = await new Match(weather, film.id);
+            addMatch(newMatch);
+        } else {
+            if (sameFilm.weather !== weather) {
+                modifyMatch({ id: sameFilm.id, weather: weather });
+            }
+        }
     }
 
     const template = (
         <>
+            <p>Si cambia el clima en una pelicula añadida, se modificara</p>
             <div className="search-order">
                 <div>
                     <img src="./img/icons8-búsqueda-30.png" alt="lupa" />
@@ -92,8 +100,8 @@ export function List({ weather }: { weather: string }) {
                 <ul className="search">
                     {printSearch.results.map(
                         (item) =>
-                            item.poster_path !== null && (
-                                <li className="search__list" key={item.title}>
+                            item.poster_path && (
+                                <li className="search__list" key={item.id}>
                                     <Link to={`/details/${item.id}`}>
                                         <img
                                             className="search__img"
@@ -108,7 +116,11 @@ export function List({ weather }: { weather: string }) {
                                             ')'}
                                     </span>
 
-                                    <button onClick={() => handlerAdd(item)}>
+                                    <button
+                                        onClick={() =>
+                                            handlerAddAndModify(item)
+                                        }
+                                    >
                                         ➕
                                     </button>
                                 </li>

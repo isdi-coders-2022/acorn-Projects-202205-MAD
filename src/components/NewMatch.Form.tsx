@@ -6,7 +6,6 @@ export function Form() {
 
     function selectWeather(ev: SyntheticEvent) {
         const target = ev.target as HTMLFormElement;
-        console.log(target.value);
         setSelectedWeather(target.value);
     }
     const template = (
