@@ -1,22 +1,22 @@
 import { SyntheticEvent, useContext, useState } from 'react';
 import { MatchContext } from '../contexts/match.context';
-import { WeatherContext } from '../contexts/weather.context';
 import { Playlist } from './PersonalPlaylist.Playlist';
 
 export function Filter() {
-    const { matches, addMatch, deleteMatch, modifyMatch } =
-        useContext(MatchContext);
-    const { loginData } = useContext(WeatherContext);
-    const [filter, setFilter] = useState('');
+    const { matches } = useContext(MatchContext);
+    const [filteredMatches, setFilteredMatches] = useState(matches);
 
-    const selectedWeather = 'soleado';
-    const filteredMatches = matches.filter(
-        (match) => match.weather === selectedWeather
-    );
     function handleChange(ev: SyntheticEvent) {
         const eventTarget = ev.target as HTMLFormElement;
-        setFilter(eventTarget.value);
+        if (eventTarget.value) {
+            setFilteredMatches(
+                matches.filter((match) => match.weather === eventTarget.value)
+            );
+        } else {
+            setFilteredMatches(matches);
+        }
     }
+
     const template = (
         <>
             <select
