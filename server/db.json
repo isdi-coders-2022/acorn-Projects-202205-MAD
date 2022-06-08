@@ -24,6 +24,16 @@
             "id": "0000005",
             "idFilm": 157336,
             "weather": "frio y nublado"
+        },
+        {
+            "weather": "",
+            "idFilm": 447404,
+            "id": "7802316"
+        },
+        {
+            "weather": "soleado",
+            "idFilm": 447404,
+            "id": "9199628"
         }
     ]
 }
