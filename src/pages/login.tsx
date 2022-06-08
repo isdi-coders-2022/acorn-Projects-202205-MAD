@@ -1,7 +1,10 @@
+import LoginButton from '../components/Login.LoginButton';
+
 export function Login() {
     const template = (
         <>
-            <p>Esto es el login</p>
+            <p>Er login</p>
+            <LoginButton />
         </>
     );
     return template;
