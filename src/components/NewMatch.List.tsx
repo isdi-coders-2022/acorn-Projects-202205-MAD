@@ -64,14 +64,16 @@ export function List({ weather }: { weather: string }) {
 
     const template = (
         <>
-            <div>
-                <img src="./img/icons8-búsqueda-30.png" alt="lupa" />
+            <div className="search-order">
+                <div>
+                    <img src="./img/icons8-búsqueda-30.png" alt="lupa" />
 
-                <input
-                    type="text"
-                    value={search}
-                    onChange={(ev) => handlerChange(ev)}
-                />
+                    <input
+                        type="text"
+                        value={search}
+                        onChange={(ev) => handlerChange(ev)}
+                    />
+                </div>
 
                 <select
                     className="config__selector"

@@ -85,3 +85,26 @@ footer ul {
     border-radius: 1rem;
     margin-right: 1rem;
 }
+
+.search-order {
+    height: 4vh;
+    display: flex;
+    justify-content: space-between;
+
+    overflow: hidden;
+}
+
+.search-order div {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+.search-order input {
+    border: none;
+    border-radius: 1rem;
+}
+
+.search-order div {
+    padding-left: 0.7rem;
+}
