@@ -8,9 +8,12 @@ export interface iWeather {
         temp_c: number;
         condition: {
             text: string;
+            finalText: spanishWeather;
         };
     };
 }
+
+export type spanishWeather = 'caluroso' | 'lluvia' | 'nieve' | 'soleado';
 
 export interface iMatch {
     id: string;

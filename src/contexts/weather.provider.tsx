@@ -18,6 +18,7 @@ export function WeatherContextProvider({
             temp_c: 0,
             condition: {
                 text: '',
+                finalText: 'caluroso',
             },
         },
     };
