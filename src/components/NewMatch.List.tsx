@@ -1,7 +1,7 @@
 import { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MatchContext } from '../contexts/match.context';
-import { iFilm, iFilmSearch, iMatch } from '../models/interface';
+import { iFilm, iFilmSearch } from '../models/interface';
 import { Match } from '../models/Match';
 import { FilmHttpStore } from '../services/films.http.store';
 
