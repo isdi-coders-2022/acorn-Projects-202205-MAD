@@ -89,6 +89,7 @@ footer ul {
     height: 4vh;
     display: flex;
     justify-content: space-between;
+    align-self: center;
 
     overflow: hidden;
 }
@@ -107,6 +108,9 @@ select {
 .search-order input {
     border: none;
     border-radius: 1rem;
+    height: 3.6vh;
+    padding: 0;
+    align-self: center;
 }
 
 .search-order div {

@@ -5,7 +5,7 @@ const initialContext: {
     matches: Array<iMatch>;
     addMatch: (match: iMatch) => void;
     deleteMatch: (match: iMatch) => void;
-    modifyMatch: (match: iMatch) => void;
+    modifyMatch: (match: Partial<iMatch>) => void;
 } = {
     matches: [],
     addMatch: () => {},
