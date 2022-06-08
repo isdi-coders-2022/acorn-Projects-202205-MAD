@@ -10,6 +10,7 @@ export class MatchHttpStore {
         return fetch(this.url).then((response) => response.json());
     }
     setMatch(match: iMatch): Promise<iMatch> {
+        console.log(this.url, 'URL');
         return fetch(this.url, {
             method: 'POST',
             body: JSON.stringify(match),

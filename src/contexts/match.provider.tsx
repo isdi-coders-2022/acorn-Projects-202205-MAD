@@ -9,7 +9,7 @@ export function MatchContextProvider({ children }: { children: ReactElement }) {
     const initialState: Array<iMatch> = [];
     const [matches, dispatch] = useReducer(matchReducer, initialState);
     const apiMatches = useMemo(
-        () => new MatchHttpStore('http://localhost:3000/matches'),
+        () => new MatchHttpStore('http://localhost:4500/matches/'),
         []
     );
     useEffect(() => {
@@ -28,7 +28,7 @@ export function MatchContextProvider({ children }: { children: ReactElement }) {
             .deleteMatch(match)
             .then((resp) => dispatch(actions.deleteMatchActionCreator(resp)));
     }
-    function modifyMatch(match: iMatch) {
+    function modifyMatch(match: Partial<iMatch>) {
         apiMatches
             .updateMatch(match)
             .then((resp) => dispatch(actions.updateMatchActionCreator(resp)));
