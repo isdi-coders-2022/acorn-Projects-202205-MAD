@@ -4,7 +4,13 @@ import { Filter } from '../components/PersonalPlaylist.Filter';
 export function PersonalPlaylist() {
     const template = (
         <>
-            <Link to="/newMatch">Añadir nuevo match</Link>
+            <Link to="/newMatch">
+                <img
+                    src="/img/add-match.png"
+                    alt="añadir nuevo"
+                    className="add-match"
+                />
+            </Link>
             <Filter />
         </>
     );

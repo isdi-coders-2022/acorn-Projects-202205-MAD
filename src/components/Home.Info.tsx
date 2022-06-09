@@ -57,7 +57,6 @@ export function Info() {
                             alt=""
                         />
                         <figcaption>
-                            {' '}
                             Y esas tardes de Otoño con aun un clima cálido en
                             las que disfrutar de peliculas de humor negro, con
                             final feliz.
