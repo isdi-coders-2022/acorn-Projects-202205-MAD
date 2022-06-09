@@ -13,7 +13,12 @@ export interface iWeather {
     };
 }
 
-export type spanishWeather = 'caluroso' | 'lluvia' | 'nieve' | 'soleado';
+export type spanishWeather =
+    | 'caluroso'
+    | 'lluvia'
+    | 'nieve'
+    | 'soleado'
+    | 'frio y nublado';
 export interface iMatch {
     id: string;
     idFilm: number;
