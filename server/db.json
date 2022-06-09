@@ -1,11 +1,6 @@
 {
   "matches": [
     {
-      "id": "0000001",
-      "idFilm": 773327,
-      "weather": "caluroso"
-    },
-    {
       "id": "0000002",
       "idFilm": 9340,
       "weather": "soleado"
