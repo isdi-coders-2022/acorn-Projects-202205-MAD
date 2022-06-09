@@ -105,7 +105,7 @@ export function List({ weather }: { weather: string }) {
                                     <Link to={`/details/${item.id}`}>
                                         <img
                                             className="search__img"
-                                            src={`https://image.tmdb.org/t/p/w1280/${item.poster_path}`}
+                                            src={`https://image.tmdb.org/t/p/w1280${item.poster_path}`}
                                             alt={item.title}
                                         />{' '}
                                     </Link>
