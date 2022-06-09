@@ -17,6 +17,7 @@ const initialContext: {
             temp_c: 0,
             condition: {
                 text: '',
+                finalText: 'soleado',
             },
         },
     },
