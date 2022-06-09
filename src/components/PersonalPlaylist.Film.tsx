@@ -17,6 +17,7 @@ export function Film({
                     filmData.poster_path
                 }
                 alt={filmData.title + ' poster'}
+                title={filmData.id.toString()}
             />
             {weatherChosen}
             <button onClick={() => handleDelete(filmData.id)}>Borrar</button>

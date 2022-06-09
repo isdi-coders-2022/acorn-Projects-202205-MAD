@@ -1,5 +1,6 @@
 import { SyntheticEvent, useContext, useState } from 'react';
 import { MatchContext } from '../contexts/match.context';
+import LogoutButton from './Login.LogoutButton';
 import { Playlist } from './PersonalPlaylist.Playlist';
 
 export function Filter() {
@@ -32,6 +33,7 @@ export function Filter() {
                 <option value="frio y nublado">Frío y nublado</option>
                 <option value="nieve">Nieve</option>
             </select>
+            <LogoutButton />
             <Playlist list={filteredMatches} />
         </>
     );

@@ -8,9 +8,9 @@ import { MatchContextProvider } from './match.provider';
 
 jest.mock('../services/match.http.store');
 
-const match1 = new Match('weather1', 0);
-const match2 = new Match('weather2', 1);
-const match3 = new Match('weather3', 2);
+const match1 = new Match('weather1', 0, 'user');
+const match2 = new Match('weather2', 1, 'user');
+const match3 = new Match('weather3', 2, 'user');
 
 describe('Given match.context', () => {
     describe('When it is used by a test component', () => {

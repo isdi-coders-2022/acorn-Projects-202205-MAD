@@ -20,8 +20,6 @@ export function matchReducer(initialState: Array<iMatch>, action: iAction) {
             );
             break;
         case MatchActionTypes['matches@delete']:
-            console.log('action', action.data);
-
             state = initialState.filter((item) => item.id !== action.data.id);
             break;
         default:
