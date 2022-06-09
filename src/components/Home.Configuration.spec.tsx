@@ -11,7 +11,7 @@ describe('Given Home > Info component', () => {
     });
 });
 
-describe('Given Home > Info component', () => {
+describe('Given Home > have a select-box ', () => {
     describe('When calling it', () => {
         test('It should render', () => {
             render(<Configuration />);
@@ -21,7 +21,7 @@ describe('Given Home > Info component', () => {
     });
 });
 
-describe('Given Home > Info component', () => {
+describe('Given Home > have a button send', () => {
     describe('When calling it', () => {
         test('It should render', () => {
             render(<Configuration />);
