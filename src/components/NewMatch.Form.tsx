@@ -17,6 +17,7 @@ export function Form() {
                 className="config__selector"
                 name="weather-config"
                 id="weather-config-match"
+                data-testid="weather-config-match"
                 onChange={(ev) => selectWeather(ev)}
             >
                 <option value="">--Selecciona un clima--</option>
