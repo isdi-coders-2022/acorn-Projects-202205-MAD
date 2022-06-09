@@ -7,12 +7,6 @@
       "id": "4869102"
     },
     {
-      "weather": "caluroso",
-      "idFilm": 701062,
-      "user": "rodrigo.calvo.blazquez",
-      "id": "8110284"
-    },
-    {
       "weather": "lluvia",
       "idFilm": 615129,
       "user": "rodrigo.calvo.blazquez",
@@ -41,6 +35,12 @@
       "idFilm": 609415,
       "user": "acalerobarrero",
       "id": "4535797"
+    },
+    {
+      "weather": "nieve",
+      "idFilm": 879,
+      "user": "rodrigo.calvo.blazquez",
+      "id": "5081510"
     }
   ]
 }
