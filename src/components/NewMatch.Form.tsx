@@ -11,10 +11,12 @@ export function Form() {
     const template = (
         <>
             <h3>CLIMA</h3>
+            <a href="/playlist">Volver</a>
             <select
                 className="config__selector"
                 name="weather-config"
                 id="weather-config-match"
+                data-testid="weather-config-match"
                 onChange={(ev) => selectWeather(ev)}
             >
                 <option value="">--Selecciona un clima--</option>
