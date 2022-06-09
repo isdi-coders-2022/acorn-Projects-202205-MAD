@@ -1,4 +1,5 @@
 import { SyntheticEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { List } from './NewMatch.List';
 
 export function Form() {
@@ -11,7 +12,7 @@ export function Form() {
     const template = (
         <>
             <h3>CLIMA</h3>
-            <a href="/playlist">Volver</a>
+            <Link to="/playlist">Volver</Link>
             <select
                 className="config__selector"
                 name="weather-config"

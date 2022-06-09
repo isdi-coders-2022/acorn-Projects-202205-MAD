@@ -23,6 +23,7 @@ export interface iMatch {
     id: string;
     idFilm: number;
     weather: string;
+    user: string;
 }
 
 export interface iFilm {
