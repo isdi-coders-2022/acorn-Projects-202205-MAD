@@ -3,7 +3,8 @@ import { iWeather } from '../models/interface';
 export class WeatherHttpStore {
     url: string;
     constructor() {
-        this.url = 'https://imdb-api.com/es/API/Title/k_wpbdnk6v/';
+        this.url =
+            'http://api.weatherapi.com/v1/current.json?key=83c33262545a4c83922152732220306&q=';
     }
 
     getWeather(location: string): Promise<iWeather> {
