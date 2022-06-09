@@ -1,4 +1,4 @@
-import { SyntheticEvent, useContext, useState } from 'react';
+import { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import { MatchContext } from '../contexts/match.context';
 import LogoutButton from './Login.LogoutButton';
 import { Playlist } from './PersonalPlaylist.Playlist';
@@ -6,15 +6,24 @@ import { Playlist } from './PersonalPlaylist.Playlist';
 export function Filter() {
     const { matches } = useContext(MatchContext);
     const [filteredMatches, setFilteredMatches] = useState(matches);
+    const [selectedFilter, setSelectedFilter] = useState('');
+
+    useEffect(() => {
+        if (selectedFilter) {
+            setFilteredMatches(
+                matches.filter((match) => match.weather === selectedFilter)
+            );
+        } else {
+            setFilteredMatches(matches);
+        }
+    }, [matches, selectedFilter]);
 
     function handleChange(ev: SyntheticEvent) {
         const eventTarget = ev.target as HTMLFormElement;
         if (eventTarget.value) {
-            setFilteredMatches(
-                matches.filter((match) => match.weather === eventTarget.value)
-            );
+            setSelectedFilter(eventTarget.value);
         } else {
-            setFilteredMatches(matches);
+            setSelectedFilter('');
         }
     }
 

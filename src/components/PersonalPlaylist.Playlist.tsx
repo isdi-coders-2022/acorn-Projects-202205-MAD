@@ -17,7 +17,7 @@ export function Playlist({ list }: { list: Array<iMatch> }) {
             promises.push(filmApi.getFilm(matchItem.idFilm))
         );
         Promise.all(promises).then((array) => setFilmList(array));
-    }, [list]);
+    }, [list, matches]);
 
     function handleDeleteMatch(idFilm: iFilm['id']) {
         const matchToDelete = matches.find(
