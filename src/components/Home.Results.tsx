@@ -9,12 +9,18 @@ export function Results({
 }) {
     const template = (
         <section className="results">
-            <p>Recomendaciones para: {currentWeather}</p>
+            <p>Recomendaciones para el clima elegido:</p>
             <ul>
                 {resultsArray.map((result) => (
                     <li key={result.id}>
                         <figure>
-                            <img src="" alt="result poster" />
+                            <img
+                                src={
+                                    'https://www.themoviedb.org/t/p/w300_and_h450_bestv2' +
+                                    result.poster_path
+                                }
+                                alt="result poster"
+                            />
                             <figcaption>{result.title}</figcaption>
                         </figure>
                     </li>

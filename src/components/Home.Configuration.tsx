@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { premadeMatches } from '../data/premade-matches';
 import { complexWeathers, weatherMatchers } from '../data/forecast-conversion';
 import { iFilm, iWeather, spanishWeather } from '../models/interface';
@@ -27,8 +27,6 @@ export function Configuration() {
     const [currentWeather, setCurrentWeather] = useState(initialValue);
     const initialResultsValue: Array<iFilm> = [];
     const [currentResults, setCurrentResults] = useState(initialResultsValue);
-
-    useEffect(() => {}, []);
 
     const complexWeather = currentWeather.current.condition
         .text as complexWeathers;
@@ -66,6 +64,7 @@ export function Configuration() {
                     Promise.all(promises).then((threeFilms) =>
                         setCurrentResults(threeFilms)
                     );
+                    setConfigData({ ...configData, location: '' });
                 });
         } else if (configData.weather) {
             let simpleWeather = configData.weather as spanishWeather;

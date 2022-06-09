@@ -6,7 +6,6 @@ export function Home() {
         <>
             <Info />
             <Configuration />
-            {/* {currentResults.map((film) => film.title)} AQUI VA RESULTS */}
         </>
     );
     return template;
