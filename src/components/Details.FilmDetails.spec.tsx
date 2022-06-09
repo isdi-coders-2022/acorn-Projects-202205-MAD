@@ -5,8 +5,7 @@ import { FilmDetails } from './Details.FilmDetails';
 describe('Given Home > Info component', () => {
     describe('When calling it', () => {
         test('It should render', () => {
-            const { id } = useParams();
-            const idFilm = id as string;
+            const idFilm = '' as string;
             render(<FilmDetails idFilm={idFilm} />);
             const labelInput = screen.getByText(/Sinopsis/i);
             expect(labelInput).toBeInTheDocument();

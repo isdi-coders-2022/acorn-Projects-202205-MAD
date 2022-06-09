@@ -22,5 +22,6 @@ export function Film({
             <button onClick={() => handleDelete(filmData.id)}>Borrar</button>
         </>
     );
+
     return template;
 }
