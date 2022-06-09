@@ -54,7 +54,7 @@ export function List({ weather }: { weather: string }) {
     }
 
     async function searchPrint(search: string) {
-        return await new FilmHttpStore().getSearchFilms(search);
+        return new FilmHttpStore().getSearchFilms(search);
     }
 
     async function handlerAddAndModify(film: iFilm) {

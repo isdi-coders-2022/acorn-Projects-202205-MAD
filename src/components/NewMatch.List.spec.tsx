@@ -68,9 +68,14 @@ describe('Given NewMatch.List', () => {
                 </MatchContext.Provider>
             );
 
-            userEvent.click(screen.getByTestId('search'));
-            userEvent.type(await screen.findByTestId('search'), 'test');
-            userEvent.click((await screen.findAllByText(/➕/i))[0]);
+            const inputField = screen.getByTestId('search');
+
+            userEvent.click(inputField);
+            userEvent.keyboard('t');
+
+            await console.log('Button to add', screen.queryByText('➕'));
+
+            userEvent.click(await screen.findByText('➕'));
 
             expect(mockContext.addMatch).toHaveBeCalled();
         });
