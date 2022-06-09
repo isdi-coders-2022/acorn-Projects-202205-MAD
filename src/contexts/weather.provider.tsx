@@ -1,6 +1,4 @@
 import { ReactElement, useState } from 'react';
-import { iWeather } from '../models/interface';
-import { WeatherHttpStore } from '../services/weather.http.store';
 import { WeatherContext } from './weather.context';
 
 export function WeatherContextProvider({
@@ -8,35 +6,21 @@ export function WeatherContextProvider({
 }: {
     children: ReactElement;
 }) {
-    const initialState: iWeather = {
-        location: {
-            name: '',
-            region: '',
-            country: '',
-        },
-        current: {
-            temp_c: 0,
-            condition: {
-                text: '',
-                finalText: 'soleado',
-            },
-        },
-    };
+    const initialState: string = 'caluroso';
     const [weather, setWeather] = useState(initialState);
     const [loginData, setLoginData] = useState({ status: false, user: '' });
-    const weatherApi = new WeatherHttpStore();
     function loginProcess(user: string) {
         setLoginData({ status: true, user: user });
     }
-    function getWeather(location: string) {
-        weatherApi.getWeather(location).then((resp) => setWeather(resp));
+    function newWeather(weather: string) {
+        setWeather(weather);
     }
 
     const context = {
         loginData,
         loginProcess,
         weather,
-        getWeather,
+        newWeather,
     };
     return (
         <WeatherContext.Provider value={context}>

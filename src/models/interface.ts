@@ -8,17 +8,17 @@ export interface iWeather {
         temp_c: number;
         condition: {
             text: string;
-            finalText: spanishWeather;
+            // finalText: spanishWeather;
         };
     };
 }
 
 export type spanishWeather =
-    | 'caluroso'
-    | 'lluvia'
-    | 'nieve'
-    | 'soleado'
-    | 'frio y nublado';
+    | 'Caluroso'
+    | 'Lluvia'
+    | 'Nieve'
+    | 'Soleado'
+    | 'Frio y nublado';
 export interface iMatch {
     id: string;
     idFilm: number;
