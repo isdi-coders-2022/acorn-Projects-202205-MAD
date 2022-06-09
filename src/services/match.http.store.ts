@@ -6,8 +6,10 @@ export class MatchHttpStore {
     getMatch(id: string): Promise<iMatch> {
         return fetch(this.url + id).then((response) => response.json());
     }
-    getAllMatch(): Promise<Array<iMatch>> {
-        return fetch(this.url).then((response) => response.json());
+    getAllMatch(nickname: string): Promise<Array<iMatch>> {
+        return fetch(this.url + '?nickname=' + nickname).then((response) =>
+            response.json()
+        );
     }
     setMatch(match: iMatch): Promise<iMatch> {
         console.log(this.url, 'URL');

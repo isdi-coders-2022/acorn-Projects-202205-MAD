@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { useContext, useEffect, useState } from 'react';
 import { MatchContext } from '../contexts/match.context';
 import { iFilm, iMatch } from '../models/interface';
@@ -8,6 +9,7 @@ export function Playlist({ list }: { list: Array<iMatch> }) {
     const initialState: Array<iFilm> = [];
     const [filmList, setFilmList] = useState(initialState);
     const { matches, deleteMatch } = useContext(MatchContext);
+    const { user } = useAuth0();
     useEffect(() => {
         const promises: Array<Promise<iFilm>> = [];
         const filmApi = new FilmHttpStore();
@@ -25,20 +27,23 @@ export function Playlist({ list }: { list: Array<iMatch> }) {
     }
 
     const template = (
-        <ul>
-            {filmList.map((film) => (
-                <li key={film.id}>
-                    <Film
-                        weatherChosen={
-                            list.find((item) => item.idFilm === film.id)
-                                ?.weather
-                        }
-                        filmData={film}
-                        handleDelete={handleDeleteMatch}
-                    />
-                </li>
-            ))}
-        </ul>
+        <>
+            <p>Playlist personal de {user?.nickname}</p>
+            <ul>
+                {filmList.map((film) => (
+                    <li key={film.id}>
+                        <Film
+                            weatherChosen={
+                                list.find((item) => item.idFilm === film.id)
+                                    ?.weather
+                            }
+                            filmData={film}
+                            handleDelete={handleDeleteMatch}
+                        />
+                    </li>
+                ))}
+            </ul>
+        </>
     );
     return template;
 }

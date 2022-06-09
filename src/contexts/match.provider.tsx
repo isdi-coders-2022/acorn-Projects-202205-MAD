@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { ReactElement, useEffect, useMemo, useReducer } from 'react';
 import { iMatch } from '../models/interface';
 import * as actions from '../reducers/match.action.creators';
@@ -12,11 +13,16 @@ export function MatchContextProvider({ children }: { children: ReactElement }) {
         () => new MatchHttpStore('http://localhost:4500/matches/'),
         []
     );
+    const { isAuthenticated, user } = useAuth0();
     useEffect(() => {
-        apiMatches
-            .getAllMatch()
-            .then((data) => dispatch(actions.loadMatchesActionCreator(data)));
-    }, [apiMatches]);
+        if (isAuthenticated) {
+            apiMatches
+                .getAllMatch(user?.nickname as string)
+                .then((data) =>
+                    dispatch(actions.loadMatchesActionCreator(data))
+                );
+        }
+    }, [apiMatches, isAuthenticated, user?.nickname]);
 
     function addMatch(match: iMatch) {
         apiMatches
