@@ -1,5 +1,4 @@
 import { SyntheticEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { List } from './NewMatch.List';
 
 export function Form() {
@@ -17,6 +16,7 @@ export function Form() {
                 className="config__selector"
                 name="weather-config"
                 id="weather-config-match"
+                data-testid="weather-config-match"
                 onChange={(ev) => selectWeather(ev)}
             >
                 <option value="">--Selecciona un clima--</option>

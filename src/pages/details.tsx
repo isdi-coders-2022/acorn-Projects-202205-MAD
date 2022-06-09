@@ -1,10 +1,12 @@
 import { useParams } from 'react-router-dom';
+import { FilmDetails } from '../components/Details.FilmDetails';
 
 export function Details() {
     const { id } = useParams();
+    const idFilm = id as string;
     const template = (
         <>
-            <p>Aqui los details de {id}</p>
+            <FilmDetails idFilm={idFilm} />
         </>
     );
     return template;

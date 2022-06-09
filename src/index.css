@@ -116,3 +116,14 @@ select {
 .search-order div {
     padding-left: 0.7rem;
 }
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail__img {
+    width: 20vh;
+    margin-top: 2rem;
+}
