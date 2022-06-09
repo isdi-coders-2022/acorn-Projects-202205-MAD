@@ -7,7 +7,13 @@ export function Navigation() {
     const template = (
         <>
             {isAuthenticated ? (
-                <Link to="/playlist">Favoritos</Link>
+                <Link to="/playlist" className="favorite">
+                    <img
+                        src="/img/favorite.gif"
+                        alt="Favoritos"
+                        role="button"
+                    />
+                </Link>
             ) : (
                 <LoginButton />
             )}

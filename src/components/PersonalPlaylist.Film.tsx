@@ -12,6 +12,7 @@ export function Film({
     const template = (
         <>
             <img
+                className="list__img"
                 src={
                     'https://www.themoviedb.org/t/p/w220_and_h330_face' +
                     filmData.poster_path
@@ -20,8 +21,11 @@ export function Film({
                 title={filmData.id.toString()}
             />
             {weatherChosen}
-            <button onClick={() => handleDelete(filmData.id)}>Borrar</button>
+            <button onClick={() => handleDelete(filmData.id)}>
+                <img src="/img/delete.png" alt="borrar" />
+            </button>
         </>
     );
+
     return template;
 }

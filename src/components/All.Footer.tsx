@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 export function Footer() {
     return (
         <footer>
+            <div className="line"></div>
             <h3>CREATORS</h3>
             <div>
                 <h4>Rodrigo Calvo</h4>

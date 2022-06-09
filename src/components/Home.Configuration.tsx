@@ -94,7 +94,6 @@ export function Configuration() {
     }
     const template = (
         <>
-            {' '}
             <div className="container">
                 <h1 className="contact_text">
                     <strong>Prueba eligiendo el ambiente:</strong>
@@ -106,7 +105,7 @@ export function Configuration() {
                         onChange={(ev) => handleTextChange(ev)}
                         type="text"
                         className="email-bt"
-                        placeholder="Ubicación               🧭"
+                        placeholder="Ubicación                 🧭"
                         name="Name"
                         value={configData.location}
                     />
@@ -137,7 +136,7 @@ export function Configuration() {
                     onClick={(ev) => handleButtonClick(ev)}
                     className="main_bt"
                 >
-                    Enviar
+                    <img src="/img/send.png" alt="enviar" role="button" />
                 </button>
             </div>
             <Results

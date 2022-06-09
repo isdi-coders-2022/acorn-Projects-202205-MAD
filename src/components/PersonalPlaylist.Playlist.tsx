@@ -28,21 +28,23 @@ export function Playlist({ list }: { list: Array<iMatch> }) {
 
     const template = (
         <>
-            <p>Playlist personal de {user?.nickname}</p>
-            <ul>
-                {filmList.map((film) => (
-                    <li key={film.id}>
-                        <Film
-                            weatherChosen={
-                                list.find((item) => item.idFilm === film.id)
-                                    ?.weather
-                            }
-                            filmData={film}
-                            handleDelete={handleDeleteMatch}
-                        />
-                    </li>
-                ))}
-            </ul>
+            <div className="playlist">
+                <p>Playlist personal de {user?.nickname}</p>
+                <ul>
+                    {filmList.map((film) => (
+                        <li key={film.id}>
+                            <Film
+                                weatherChosen={
+                                    list.find((item) => item.idFilm === film.id)
+                                        ?.weather
+                                }
+                                filmData={film}
+                                handleDelete={handleDeleteMatch}
+                            />
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </>
     );
     return template;

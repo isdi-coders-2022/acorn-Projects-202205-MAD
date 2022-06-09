@@ -6,7 +6,7 @@ const LogoutButton = () => {
 
     return (
         <button onClick={() => logout({ returnTo: window.location.origin })}>
-            Log Out
+            <img src="/img/logout.png" alt="deslogear" />
         </button>
     );
 };

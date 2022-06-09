@@ -21,6 +21,7 @@ header {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
 }
 .line {
     align-self: center;
@@ -31,18 +32,37 @@ header {
 }
 
 header .header {
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
 }
 
 header button {
-    width: 5vh;
-    height: 5vh;
+    width: 10vh;
+    height: 10vh;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+header button img {
+    width: 10vh;
+    height: 10vh;
 }
 
 header img {
+    display: flex;
     width: 12vh;
     height: 12vh;
+}
+.favorite img {
+    width: 5vh;
+    height: 5vh;
 }
 
 footer {
@@ -93,6 +113,7 @@ footer ul {
 
     overflow: hidden;
 }
+*,
 body,
 .search-order input,
 select {
@@ -126,4 +147,50 @@ select {
 .detail__img {
     width: 20vh;
     margin-top: 2rem;
+}
+
+.nav__personal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.add-match {
+    width: 5vh;
+}
+
+.nav__personal button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.playlist ul {
+    display: flex;
+    overflow: hidden;
+    width: 80vh;
+}
+
+.playlist ul button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.playlist ul button img {
+    width: 5vh;
+}
+
+.playlist ul .list__img {
+    width: 20vh;
+    border-radius: 1rem;
+    margin: 1rem;
 }
