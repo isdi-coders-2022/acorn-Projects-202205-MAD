@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
 import { MatchContextProvider } from './contexts/match.provider';
+import { WeatherContextProvider } from './contexts/weather.provider';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -17,9 +18,11 @@ root.render(
             redirectUri={window.location.origin}
         >
             <MatchContextProvider>
-                <BrowserRouter>
-                    <App />
-                </BrowserRouter>
+                <WeatherContextProvider>
+                    <BrowserRouter>
+                        <App />
+                    </BrowserRouter>
+                </WeatherContextProvider>
             </MatchContextProvider>
         </Auth0Provider>
     </React.StrictMode>

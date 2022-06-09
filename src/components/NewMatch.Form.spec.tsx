@@ -1,17 +1,26 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { BrowserRouter } from 'react-router-dom';
 import { Form } from './NewMatch.Form';
 
 describe('Given NewMatch.Form', () => {
     describe('When it is used by a test', () => {
         test('Then it should render', () => {
-            render(<Form />);
+            render(
+                <BrowserRouter>
+                    <Form />
+                </BrowserRouter>
+            );
 
             const element = screen.getByText(/CLIMA/);
             expect(element).toBeInTheDocument();
         });
         test('Then it should weather selected if select button is changed', () => {
-            render(<Form />);
+            render(
+                <BrowserRouter>
+                    <Form />
+                </BrowserRouter>
+            );
 
             userEvent.selectOptions(
                 screen.getByTestId('weather-config-match') as HTMLFormElement,

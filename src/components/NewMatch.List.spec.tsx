@@ -36,7 +36,7 @@ describe('Given NewMatch.List', () => {
             const element = screen.getByText(/Si cambia el clima/i);
             expect(element).toBeInTheDocument();
         });
-        test('Then it should selecet the selec button', () => {
+        test('Then it should select the select button', () => {
             render(<List weather={'caluroso'} />);
 
             userEvent.selectOptions(
@@ -71,11 +71,9 @@ describe('Given NewMatch.List', () => {
             const inputField = screen.getByTestId('search');
 
             userEvent.click(inputField);
-            userEvent.keyboard('t');
+            userEvent.keyboard('test');
 
-            await console.log('Button to add', screen.queryByText('➕'));
-
-            userEvent.click(await screen.findByText('➕'));
+            userEvent.click(await screen.findByText(/test/));
 
             expect(mockContext.addMatch).toHaveBeCalled();
         });

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { FilmDetails } from './Details.FilmDetails';
-import { FilmHttpStore } from '../services/films.http.store';
 import { iFilm, iVideo } from '../models/interface';
+import { FilmHttpStore } from '../services/films.http.store';
+import { Details } from './details';
 
 jest.mock('../services/films.http.store');
 const film1: iFilm = {
@@ -17,19 +17,16 @@ const video1: iVideo = {
     results: [{ key: 'test', type: 'test' }],
 };
 
-describe('Given FilmDetails component', () => {
+describe('Given Details page element', () => {
     beforeEach(() => {
         FilmHttpStore.prototype.getFilm = jest.fn().mockResolvedValue(film1);
         FilmHttpStore.prototype.getVideo = jest.fn().mockResolvedValue(video1);
     });
     describe('When calling it', () => {
-        test('It should ask data to the api and render', async () => {
-            const id = 0;
-
-            render(<FilmDetails idFilm={id.toString()} />);
-
-            const labelInput = await screen.findByText(/test title/i);
-            expect(labelInput).toBeInTheDocument();
+        test('Then it should render', () => {
+            render(<Details />);
+            const test1 = screen.getByText(/estreno/i);
+            expect(test1).toBeInTheDocument();
         });
     });
 });

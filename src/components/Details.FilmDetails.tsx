@@ -29,8 +29,6 @@ export function FilmDetails({ idFilm }: { idFilm: string }) {
         setVideoFilm(resp);
     });
 
-    console.log(videoFilm);
-
     const template = (
         <>
             <section className="detail">
