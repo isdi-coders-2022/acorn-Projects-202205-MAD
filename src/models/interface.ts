@@ -8,7 +8,6 @@ export interface iWeather {
         temp_c: number;
         condition: {
             text: string;
-            // finalText: spanishWeather;
         };
     };
 }
