@@ -4,7 +4,9 @@ import { complexWeathers, weatherMatchers } from '../data/forecast-conversion';
 import { iFilm, iWeather, spanishWeather } from '../models/interface';
 import { WeatherHttpStore } from '../services/weather.http.store';
 import { FilmHttpStore } from '../services/films.http.store';
-
+import './home.css';
+import { Info } from '../components/Home.Info';
+import { Configuration } from '../components/Home.Configuration';
 export function Home() {
     const initialValue: iWeather = {
         location: {
@@ -55,7 +57,8 @@ export function Home() {
 
     const template = (
         <>
-            <p>Esto es el home</p>
+            <Info />
+            <Configuration />
             {currentResults.map((film) => film.title)}
         </>
     );
