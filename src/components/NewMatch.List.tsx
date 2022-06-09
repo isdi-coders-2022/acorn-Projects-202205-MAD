@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MatchContext } from '../contexts/match.context';
@@ -7,6 +8,7 @@ import { FilmHttpStore } from '../services/films.http.store';
 
 export function List({ weather }: { weather: string }) {
     const { addMatch, matches, modifyMatch } = useContext(MatchContext);
+    const { user } = useAuth0();
 
     const initialPrintSearch: iFilmSearch = {
         results: [
@@ -60,7 +62,11 @@ export function List({ weather }: { weather: string }) {
     async function handlerAddAndModify(film: iFilm) {
         const sameFilm = matches.find((match) => match.idFilm === film.id);
         if (sameFilm === undefined) {
-            const newMatch = await new Match(weather, film.id);
+            const newMatch = await new Match(
+                weather,
+                film.id,
+                user?.nickname as string
+            );
             addMatch(newMatch);
         } else {
             if (sameFilm.weather !== weather) {
@@ -101,7 +107,7 @@ export function List({ weather }: { weather: string }) {
             <div>
                 <ul className="search">
                     {printSearch.results.map(
-                        (item) =>
+                        (item, index) =>
                             item.poster_path && (
                                 <li className="search__list" key={item.id}>
                                     <Link to={`/details/${item.id}`}>

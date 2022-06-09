@@ -30,9 +30,11 @@ export function MatchContextProvider({ children }: { children: ReactElement }) {
             .then((resp) => dispatch(actions.addMatchActionCreator(resp)));
     }
     function deleteMatch(match: iMatch) {
-        apiMatches
-            .deleteMatch(match)
-            .then((resp) => dispatch(actions.deleteMatchActionCreator(match)));
+        apiMatches.deleteMatch(match).then(() => {
+            console.log('match a borrar: ', match);
+
+            dispatch(actions.deleteMatchActionCreator(match));
+        });
     }
     function modifyMatch(match: Partial<iMatch>) {
         apiMatches

@@ -21,7 +21,7 @@ export function Playlist({ list }: { list: Array<iMatch> }) {
 
     function handleDeleteMatch(idFilm: iFilm['id']) {
         const matchToDelete = matches.find(
-            (match) => (match.idFilm = idFilm)
+            (match) => match.idFilm === idFilm
         ) as iMatch;
         deleteMatch(matchToDelete);
     }
