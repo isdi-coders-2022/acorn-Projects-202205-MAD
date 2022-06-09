@@ -54,7 +54,7 @@ export function List({ weather }: { weather: string }) {
     }
 
     async function searchPrint(search: string) {
-        return await new FilmHttpStore().getSearchFilms(search);
+        return new FilmHttpStore().getSearchFilms(search);
     }
 
     async function handlerAddAndModify(film: iFilm) {
@@ -79,6 +79,7 @@ export function List({ weather }: { weather: string }) {
                     <input
                         type="text"
                         value={search}
+                        data-testid="search"
                         onChange={(ev) => handlerChange(ev)}
                     />
                 </div>
@@ -87,6 +88,7 @@ export function List({ weather }: { weather: string }) {
                     className="config__selector"
                     name="sort-config"
                     id="sort-config-match"
+                    data-testid="sort-config-match"
                     onChange={(ev) => orderBy(ev)}
                 >
                     <option value="">ordenar por</option>
