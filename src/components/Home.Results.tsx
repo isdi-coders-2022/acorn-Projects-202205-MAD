@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { iFilm } from '../models/interface';
 
 export function Results({
@@ -14,13 +15,15 @@ export function Results({
                 {resultsArray.map((result) => (
                     <li key={result.id}>
                         <figure>
-                            <img
-                                src={
-                                    'https://www.themoviedb.org/t/p/w300_and_h450_bestv2' +
-                                    result.poster_path
-                                }
-                                alt="result poster"
-                            />
+                            <Link to={`/details/${result.id}`}>
+                                <img
+                                    src={
+                                        'https://www.themoviedb.org/t/p/w300_and_h450_bestv2' +
+                                        result.poster_path
+                                    }
+                                    alt="result poster"
+                                />
+                            </Link>
                             <figcaption>{result.title}</figcaption>
                         </figure>
                     </li>

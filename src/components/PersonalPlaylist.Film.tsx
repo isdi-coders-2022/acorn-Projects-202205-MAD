@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { iFilm } from '../models/interface';
 
 export function Film({
@@ -11,15 +12,17 @@ export function Film({
 }) {
     const template = (
         <>
-            <img
-                className="list__img"
-                src={
-                    'https://www.themoviedb.org/t/p/w220_and_h330_face' +
-                    filmData.poster_path
-                }
-                alt={filmData.title + ' poster'}
-                title={filmData.id.toString()}
-            />
+            <Link to={`/details/${filmData.id}`}>
+                <img
+                    className="list__img"
+                    src={
+                        'https://www.themoviedb.org/t/p/w220_and_h330_face' +
+                        filmData.poster_path
+                    }
+                    alt={filmData.title + ' poster'}
+                    title={filmData.id.toString()}
+                />
+            </Link>
             {weatherChosen}
             <button onClick={() => handleDelete(filmData.id)}>
                 <img src="/img/delete.png" alt="borrar" />
