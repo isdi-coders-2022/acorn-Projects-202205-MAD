@@ -171,8 +171,15 @@ select {
 
 .playlist ul {
     display: flex;
-    overflow: hidden;
+    flex-wrap: wrap;
     width: 80vh;
+}
+
+.playlist li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .playlist ul button {
