@@ -29,7 +29,7 @@ describe('Given match.context', () => {
                 .fn()
                 .mockResolvedValue([weather1]);
             MockComponent = function () {
-                const { weather, newWeather, loginData } =
+                const { weather, newWeather, loginData, loginProcess } =
                     useContext(WeatherContext);
                 return (
                     <>
@@ -38,35 +38,47 @@ describe('Given match.context', () => {
                             testing loginData:{' '}
                             {loginData.status ? 'true' : 'false'}
                         </p>
-                        <button onClick={() => newWeather('test')}>
+                        <button onClick={() => newWeather('newWeather')}>
                             getWeather
+                        </button>
+                        <button onClick={() => loginProcess('test')}>
+                            loginTest
                         </button>
                     </>
                 );
             };
         });
-        test('Then it should render info from the context', async () => {
+        test('Then it should render text', () => {
             render(
                 <WeatherContextProvider>
                     <MockComponent />
                 </WeatherContextProvider>
             );
 
-            const element = screen.getByText(/caluroso/i);
+            const element = screen.getByText(/testing weather:/i);
             expect(element).toBeInTheDocument();
-            const element2 = screen.getByText(/false/i);
-            expect(element2).toBeInTheDocument();
-            const element3 = screen.getByRole('button');
-            expect(element3).toBeInTheDocument();
         });
-        test('Then it should get data from the context', () => {
+        test('Then it should function called', async () => {
             render(
                 <WeatherContextProvider>
                     <MockComponent />
                 </WeatherContextProvider>
             );
-            userEvent.click(screen.getByRole('button'));
-            expect(WeatherHttpStore.prototype.getWeather).toHaveBeenCalled();
+
+            userEvent.click(screen.getByText(/getWeather/i));
+            const element = await screen.findByText(/newWeather/);
+            expect(element).toBeInTheDocument();
+        });
+        test('Then it should loginProcess setted', async () => {
+            render(
+                <WeatherContextProvider>
+                    <MockComponent />
+                </WeatherContextProvider>
+            );
+            // const mockSetter = jest.spyOn(React, '');
+
+            // userEvent.click(screen.getByText(/loginTest/));
+            // expect(mockSetter).toBeCalled();
         });
     });
 });
