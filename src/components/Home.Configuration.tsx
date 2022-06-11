@@ -113,6 +113,7 @@ export function Configuration() {
                 <div className="form-group">
                     <select
                         name="select"
+                        data-testid="select-weather"
                         onChange={(ev) => handleSelectChange(ev)}
                     >
                         <option value="Caluroso">Caluroso</option>
@@ -136,7 +137,7 @@ export function Configuration() {
                     onClick={(ev) => handleButtonClick(ev)}
                     className="main_bt"
                 >
-                    <img src="/img/send.png" alt="enviar" role="button" />
+                    <img src="/img/send.png" alt="enviar" />
                 </button>
             </div>
             <Results
