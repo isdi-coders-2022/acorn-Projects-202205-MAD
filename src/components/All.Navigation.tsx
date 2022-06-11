@@ -8,11 +8,7 @@ export function Navigation() {
         <>
             {isAuthenticated ? (
                 <Link to="/playlist" className="favorite">
-                    <img
-                        src="/img/favorite.gif"
-                        alt="Favoritos"
-                        role="button"
-                    />
+                    <img src="/img/favorite.gif" alt="Favoritos" />
                 </Link>
             ) : (
                 <LoginButton />
