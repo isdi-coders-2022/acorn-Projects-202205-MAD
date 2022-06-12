@@ -1,11 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { iFilm } from '../models/interface';
 import { Film } from './PersonalPlaylist.Film';
 
 describe('Given Film component', () => {
     describe('When calling it', () => {
-        test('Then it should render', () => {
+        test('Then it should render', async () => {
             const weatherChosen = 'Soleado';
             const filmData: iFilm = {
                 id: 0,
@@ -17,20 +18,21 @@ describe('Given Film component', () => {
             };
             const handleDelete = jest.fn();
             render(
-                <Film
-                    filmData={filmData}
-                    handleDelete={handleDelete}
-                    weatherChosen={weatherChosen}
-                />
+                <BrowserRouter>
+                    <Film
+                        filmData={filmData}
+                        handleDelete={handleDelete}
+                        weatherChosen={weatherChosen}
+                    />
+                </BrowserRouter>
             );
-            const test1 = screen.getByText(/soleado/i);
-            expect(test1).toBeInTheDocument();
-            const test2 = screen.getByRole('button');
-            expect(test2).toBeInTheDocument();
+
+            const button = screen.getByRole('button');
+            expect(button).toBeInTheDocument();
+            const element = screen.getByText(/soleado/i);
+            expect(element).toBeInTheDocument();
         });
-    });
-    describe('When clicking on delete button', () => {
-        test('Then delete function should be called', () => {
+        test('Then it should handleDelete to been called', () => {
             const weatherChosen = 'Soleado';
             const filmData: iFilm = {
                 id: 0,
@@ -42,14 +44,18 @@ describe('Given Film component', () => {
             };
             const handleDelete = jest.fn();
             render(
-                <Film
-                    filmData={filmData}
-                    handleDelete={handleDelete}
-                    weatherChosen={weatherChosen}
-                />
+                <BrowserRouter>
+                    <Film
+                        filmData={filmData}
+                        handleDelete={handleDelete}
+                        weatherChosen={weatherChosen}
+                    />
+                </BrowserRouter>
             );
+
             userEvent.click(screen.getByRole('button'));
-            expect(handleDelete).toHaveBeenCalled();
+
+            expect(handleDelete).toBeCalled();
         });
     });
 });
