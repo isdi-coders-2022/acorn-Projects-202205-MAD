@@ -52,5 +52,10 @@
         "eslint-config-prettier": "^8.5.0",
         "husky": "^8.0.1",
         "json-server": "^0.17.0"
+    },
+    "jest": {
+        "testPathIgnorePatterns": [
+            "/src/index.tsx"
+        ]
     }
 }

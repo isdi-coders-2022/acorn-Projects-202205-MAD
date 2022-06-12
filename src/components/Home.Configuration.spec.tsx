@@ -31,6 +31,11 @@ const weather1: iWeather = {
     },
 };
 
+const configData = {
+    location: 'madrid',
+    weather: 'soleado',
+};
+
 describe('Given Home Configuration component', () => {
     beforeEach(() => {
         FilmHttpStore.prototype.getFilm = jest.fn().mockResolvedValue(film1);
