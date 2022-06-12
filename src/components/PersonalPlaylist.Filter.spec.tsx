@@ -11,15 +11,22 @@ describe('Given the Filter component', () => {
         });
     });
     describe('When the select item is changed', () => {
-        test('Then handleChange function should be called', () => {
-            Filter.prototype.handleChange = jest.fn();
+        test('Then it should select options', () => {
             render(<Filter />);
-            userEvent.selectOptions(screen.getByRole('combobox'), 'Soleado');
             userEvent.selectOptions(
-                screen.getByRole('combobox'),
-                '--Selecciona un clima--'
+                screen.getByTestId('config__selector'),
+                'soleado'
             );
-            expect(Filter.prototype.handleChange).toHaveBeenCalled();
+
+            const option = screen.getByRole('option', {
+                name: 'Soleado',
+            }) as HTMLFormElement;
+            const option2 = screen.getByRole('option', {
+                name: 'Lluvia',
+            }) as HTMLFormElement;
+
+            expect(option.selected).toBe(true);
+            expect(option2.selected).toBe(false);
         });
     });
 });
