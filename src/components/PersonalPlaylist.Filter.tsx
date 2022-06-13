@@ -33,6 +33,7 @@ export function Filter() {
                 <select
                     onChange={(ev) => handleChange(ev)}
                     className="config__selector"
+                    data-testid="config__selector"
                     name="weather-config"
                     id="weather-config"
                 >
